@@ -1,0 +1,39 @@
+import turtle
+import math
+
+# Create the screen
+screen = turtle.Screen()
+screen.bgcolor("white")
+screen.title("I Love You ❤️")
+
+# Create the turtle
+t = turtle.Turtle()
+t.speed(0)
+t.hideturtle()
+t.penup()
+t.color("#ff69b4")
+
+# Draw the heart using "I Love You"
+for scale in range(11, 17):
+    for i in range(120):
+        angle = i * (math.pi * 2 / 120)
+
+        x = scale * 16 * math.sin(angle) ** 3
+
+        y = scale * (
+            13 * math.cos(angle)
+            - 5 * math.cos(2 * angle)
+            - 2 * math.cos(3 * angle)
+            - math.cos(4 * angle)
+        )
+
+        t.goto(x, y)
+
+        t.write(
+            "I Love You",
+            align="center",
+            font=("Arial", 8, "bold")
+        )
+
+# Keep the window open
+turtle.done()
